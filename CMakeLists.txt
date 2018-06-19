@@ -7,6 +7,6 @@ set(CMAKE_AUTOMOC ON)
 
 find_package(OpenCV REQUIRED)
 
-add_executable(${PROJECT_NAME} svm_functions.h svm_functions.cpp main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})

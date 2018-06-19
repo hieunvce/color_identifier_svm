@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/hieunguyen/Projects/points_classifier/main.cpp" "/home/hieunguyen/Projects/points_classifier/CMakeFiles/points_classifier.dir/main.cpp.o"
-  "/home/hieunguyen/Projects/points_classifier/svm_functions.cpp" "/home/hieunguyen/Projects/points_classifier/CMakeFiles/points_classifier.dir/svm_functions.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

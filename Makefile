@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/hieunguyen/Apps/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/home/hieunguyen/Apps/clion-2018.1.3/bin/cmake/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -150,33 +150,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/points_classifier.dir/build.make CMakeFiles/points_classifier.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-svm_functions.o: svm_functions.cpp.o
-
-.PHONY : svm_functions.o
-
-# target to build an object file
-svm_functions.cpp.o:
-	$(MAKE) -f CMakeFiles/points_classifier.dir/build.make CMakeFiles/points_classifier.dir/svm_functions.cpp.o
-.PHONY : svm_functions.cpp.o
-
-svm_functions.i: svm_functions.cpp.i
-
-.PHONY : svm_functions.i
-
-# target to preprocess a source file
-svm_functions.cpp.i:
-	$(MAKE) -f CMakeFiles/points_classifier.dir/build.make CMakeFiles/points_classifier.dir/svm_functions.cpp.i
-.PHONY : svm_functions.cpp.i
-
-svm_functions.s: svm_functions.cpp.s
-
-.PHONY : svm_functions.s
-
-# target to generate assembly for a file
-svm_functions.cpp.s:
-	$(MAKE) -f CMakeFiles/points_classifier.dir/build.make CMakeFiles/points_classifier.dir/svm_functions.cpp.s
-.PHONY : svm_functions.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +162,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... svm_functions.o"
-	@echo "... svm_functions.i"
-	@echo "... svm_functions.s"
 .PHONY : help
 
 
