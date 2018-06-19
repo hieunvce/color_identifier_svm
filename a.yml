@@ -1,0 +1,31 @@
+%YAML:1.0
+---
+opencv_ml_svm:
+   format: 3
+   svmType: C_SVC
+   kernel:
+      type: POLY
+      degree: 5.0000000000000000e-01
+      gamma: 1.
+      coef0: 1.
+   C: 10.
+   term_criteria: { epsilon:1.0000000000000000e-02, iterations:1000 }
+   var_count: 2
+   class_count: 2
+   class_labels: !!opencv-matrix
+      rows: 2
+      cols: 1
+      dt: i
+      data: [ 0, 1 ]
+   sv_total: 3
+   support_vectors:
+      - [ 196., 222. ]
+      - [ 243., 175. ]
+      - [ 342., 322. ]
+   decision_functions:
+      -
+         sv_count: 3
+         rho: -4.6834081427991068e+00
+         alpha: [ 2.9969717431307863e-01, -5.5073156590320457e-02,
+             -2.4462401772275816e-01 ]
+         index: [ 0, 2, 1 ]

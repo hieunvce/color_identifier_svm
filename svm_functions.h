@@ -15,7 +15,6 @@
 #include "opencv2/ml.hpp"
 #include "opencv2/highgui.hpp"
 
-
 using namespace std;
 using namespace cv;
 using namespace cv::ml;
@@ -30,3 +29,5 @@ void loadDataDir(vector<string> dirsName);
 static Mat prepareTrainSamples(const vector<Point> &pts);
 static Ptr<TrainData> prepareTrainData();
 void trainSVMModel(double C);
+int predictColor(const Ptr<StatModel>& model, int a, int b);
+Mat segmentImage(const Ptr<StatModel>& model, Mat LabImg);

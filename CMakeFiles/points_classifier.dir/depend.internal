@@ -4,6 +4,8 @@
 CMakeFiles/points_classifier.dir/main.cpp.o
  /home/hieunguyen/Projects/points_classifier/main.cpp
  /home/hieunguyen/Projects/points_classifier/svm_functions.h
+ /usr/local/include/opencv/cv.h
+ /usr/local/include/opencv/cv.hpp
  /usr/local/include/opencv/cxcore.h
  /usr/local/include/opencv2/calib3d.hpp
  /usr/local/include/opencv2/calib3d/calib3d_c.h

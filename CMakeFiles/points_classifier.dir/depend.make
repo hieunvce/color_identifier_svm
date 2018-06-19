@@ -3,6 +3,8 @@
 
 CMakeFiles/points_classifier.dir/main.cpp.o: main.cpp
 CMakeFiles/points_classifier.dir/main.cpp.o: svm_functions.h
+CMakeFiles/points_classifier.dir/main.cpp.o: /usr/local/include/opencv/cv.h
+CMakeFiles/points_classifier.dir/main.cpp.o: /usr/local/include/opencv/cv.hpp
 CMakeFiles/points_classifier.dir/main.cpp.o: /usr/local/include/opencv/cxcore.h
 CMakeFiles/points_classifier.dir/main.cpp.o: /usr/local/include/opencv2/calib3d.hpp
 CMakeFiles/points_classifier.dir/main.cpp.o: /usr/local/include/opencv2/calib3d/calib3d_c.h

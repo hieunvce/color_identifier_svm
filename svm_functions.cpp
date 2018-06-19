@@ -9,6 +9,8 @@ vector<Point> training_points;
 vector<int> training_labels;
 const int testStep = 5;
 vector<string> classes;
+vector<Vec3b> classColors(5);
+extern Ptr<SVM> svm;
 
 void initClasses(){
     classes.push_back("background");
@@ -16,6 +18,13 @@ void initClasses(){
     classes.push_back("yellow");
     classes.push_back("green");
     classes.push_back("other");
+
+    //B-G-R
+    classColors[0]=Vec3b(255,255,255);
+    classColors[1]=Vec3b(0,0,255);
+    classColors[2]=Vec3b(0,255,255);
+    classColors[3]=Vec3b(0,255,0);
+    classColors[4]=Vec3b(0,0,0);
 }
 
 void addPointsValue(Mat image, int color){
@@ -79,7 +88,8 @@ static Ptr<TrainData> prepareTrainData()
 void trainSVMModel(double C)
 {
     cout << "Training..." << endl;
-    Ptr<SVM> svm = SVM::create();
+    //Ptr<SVM> svm = SVM::create();
+    svm=SVM::create();
     svm->setType(SVM::C_SVC);
     svm->setKernel(SVM::POLY); //SVM::LINEAR;
     svm->setDegree(0.5);
@@ -91,4 +101,30 @@ void trainSVMModel(double C)
     svm->setC(C);
     svm->train(prepareTrainData());
     svm->save("color_classifier.yml");
+}
+
+int predictColor(const Ptr<StatModel>& model, int a, int b)
+{
+    Mat predictMat(1,2,CV_32FC1);
+    predictMat.at<float>(0)=(float)a;
+    predictMat.at<float>(1)=(float)b;
+    return (int)model->predict(predictMat);
+}
+
+Mat segmentImage(const Ptr<StatModel>& model, Mat LabImg)
+{
+    Mat segImg=LabImg.clone();
+    for (int i=0;i<LabImg.rows;i++)
+    {
+        const uchar *lab_data=LabImg.ptr<uchar>(i);
+        for (int j=0;j<LabImg.cols;j++)
+        {
+            lab_data++;//skip L
+            int a=*lab_data++;
+            int b=*lab_data++;
+            int response=predictColor(model,a,b);
+            segImg.at<Vec3b>(i,j)=classColors[response];
+        }
+    }
+    return segImg;
 }
